@@ -10,7 +10,7 @@ pipeline {
         stage ('buildsatge'){
             steps {
                 echo "Buiding the Eureka Application "
-                sh "mvn --version"
+                sh "mvn package"
             }
         }
     }
