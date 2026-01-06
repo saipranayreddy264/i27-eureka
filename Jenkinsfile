@@ -2,10 +2,15 @@ pipeline {
     agent {
         label 'java-slave'
     }
+    tools {
+        maven ' Maven 3.6.3'
+        jdk 'JDK-21'
+    }
     stages {
         stage ('buildsatge'){
             steps {
-                echo "this is a build stage "
+                echo "Buiding the Eureka Application "
+                sh "mvn --version"
             }
         }
     }
