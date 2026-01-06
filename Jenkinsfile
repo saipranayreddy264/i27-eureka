@@ -3,8 +3,8 @@ pipeline {
         label 'java-slave'
     }
     tools {
-        maven 'Maven 3.6.3'
-        jdk 'JDK-21'
+        maven 'Maven 3.8.9'
+        jdk 'JDK-17'
     }
     environment {
         APPLICATION_NAME = "eureka"
