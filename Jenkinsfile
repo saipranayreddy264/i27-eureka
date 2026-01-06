@@ -14,7 +14,7 @@ pipeline {
             steps {
                 echo "Buiding the ${APPLICATION_NAME} Application "
                 sh "mvn package -DskipTests=true"
-                archiveArtifacts arrtifacts: 'target/*jar'
+                archiveArtifacts artifacts: 'target/*jar'
             }
         }
     }
