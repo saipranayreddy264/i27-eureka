@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # learer-eureka
 
 Run this project as a Spring Boot app (e.g. import into IDE and run
@@ -21,3 +22,7 @@ login feature
 ### dev chnages
 
 * new feature implementation
+=======
+# i27-eureka
+eureka application
+>>>>>>> f319e865429610961ed0e8d7cede6509339be12e
