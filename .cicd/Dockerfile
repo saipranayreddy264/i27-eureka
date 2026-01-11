@@ -1,4 +1,4 @@
-From openjdk:18
+From eclipse-temurin:17-jdk-alpine
 RUN mkdir /opt/i27
 WORKDIR /opt/i27
 ARG JAVA_SOURCE
