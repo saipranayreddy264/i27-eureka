@@ -52,6 +52,10 @@ pipeline {
                 echo "Exisiting jar Format: i27-${env.APPLICATION_NAME}-${env.POM_VERSION}.${env.POM_PACKAGING}"
                 echo "Building Docker Images"
                 docker build --no-cache --build-arg JAR_SOURCE=i27-${env.APPLICATION_NAME}-${env.POM_VERSION}.${env.POM_PACKAGING} -t ${DOCKER_HUB}/${APPLICATION_NAME}:$GIT_COMMIT ./.cicd
+                echo "******************DockerLogin************************"
+                docker login -u ${DOCKER_CREDS_USR} -p ${DOCKER_CREDS_PSW}
+                echo "**************DockerPush***************"
+                docker push ${env.DOCKER_HUB}/${env.APPLICATION_NAME}:$GIT_COMMIT
                 """
             }
         }
