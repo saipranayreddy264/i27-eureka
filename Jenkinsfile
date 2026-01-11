@@ -15,6 +15,7 @@ pipeline {
         // Docker hub details
         DOCKER_HUB = "docker.io/saipranayreddy"
         DOCKER_CREDS = credentials("dockerhub_creds")
+        PATH = "/usr/bin:/snap/bin:/usr/local/bin:${env.PATH}"
     }
     stages {
         stage ('buildsatge'){
@@ -50,7 +51,7 @@ pipeline {
                 echo "Target jar Format: i27-${env.APPLICATION_NAME}-${BUILD_NUMBER}-${BRANCH_NAME}.${POM_PACKAGING}"
                 echo "Exisiting jar Format: i27-${env.APPLICATION_NAME}-${env.POM_VERSION}.${env.POM_PACKAGING}"
                 echo "Building Docker Images"
-                /usr/bin/docker build --no-cache --build-arg JAR_SOURCE=i27-${env.APPLICATION_NAME}-${env.POM_VERSION}.${env.POM_PACKAGING} -t ${DOCKER_HUB}/${APPLICATION_NAME}:$GIT_COMMIT ./.cicd
+                docker build --no-cache --build-arg JAR_SOURCE=i27-${env.APPLICATION_NAME}-${env.POM_VERSION}.${env.POM_PACKAGING} -t ${DOCKER_HUB}/${APPLICATION_NAME}:$GIT_COMMIT ./.cicd
                 """
             }
         }
